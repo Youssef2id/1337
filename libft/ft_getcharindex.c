@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_getcharindex.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysalahed <salahyassine4@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/17 16:09:58 by ysalahed          #+#    #+#             */
-/*   Updated: 2018/10/17 18:07:41 by ysalahed         ###   ########.fr       */
+/*   Created: 2018/10/19 15:31:40 by ysalahed          #+#    #+#             */
+/*   Updated: 2018/10/19 15:31:43 by ysalahed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstdelone(t_list **alst, void (*del)(void*, size_t))
+int			ft_getcharindex(char *str, char c)
 {
-	if (!alst || !del)
-		return ;
-	(*del)((*alst)->content, (*alst)->content_size);
-	ft_memdel((void **)alst);
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == c)
+			return (i);
+		i++;
+	}
+	return (-1);
 }

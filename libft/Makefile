@@ -10,12 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME=libft.a
-CC=gcc
-CFLAGS=-Wall -Wextra -Werror
-RM=rm -f
-LDFLAGS=-L.
-LDLIBS=-lft
+NAME = libft.a
+CC = gcc
+CFLAGS = -Wall -Wextra  -Werror
 SRC = ft_bzero.c ft_memset.c ft_memcpy.c\
 	  ft_memccpy.c ft_memmove.c ft_memchr.c\
 	  ft_memcmp.c ft_strlen.c ft_strcpy.c\
@@ -36,22 +33,20 @@ SRC = ft_bzero.c ft_memset.c ft_memcpy.c\
 	  ft_putnbr_fd.c ft_itoa.c ft_strsplit.c\
 	  ft_lstnew.c ft_lstdelone.c ft_abs.c\
 	  ft_lstdel.c ft_lstadd.c ft_lstiter.c\
-	  ft_lstmap.c
-OBJ = $(SRC:.c=.o)
-
-$(NAME): $(OBJ)
-		ar rc $(NAME) $(OBJ)
-		ranlib $(NAME)
-
-%.o: %.c
-		$(CC) -I. -o $@ -c $? $(CFLAGS)
+	  ft_lstmap.c ft_getcharindex.c ft_swap.c\
+	  ft_strrev.c ft_strcapitalize.c
 
 all: $(NAME)
 
+$(NAME):
+	$(CC) -c $(SRC) -I.
+	ar rc $(NAME) *.o
+
 clean:
-		$(RM) $(OBJ)
+	rm -rf *.o
 
 fclean: clean
-		$(RM) $(NAME)
+	rm -rf *.a
 
 re: fclean all
+

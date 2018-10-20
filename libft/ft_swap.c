@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysalahed <salahyassine4@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/17 16:09:58 by ysalahed          #+#    #+#             */
-/*   Updated: 2018/10/17 18:07:41 by ysalahed         ###   ########.fr       */
+/*   Created: 2018/10/19 18:43:46 by ysalahed          #+#    #+#             */
+/*   Updated: 2018/10/19 18:46:12 by ysalahed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstdelone(t_list **alst, void (*del)(void*, size_t))
+void	ft_swap(int *a, int *b)
 {
-	if (!alst || !del)
-		return ;
-	(*del)((*alst)->content, (*alst)->content_size);
-	ft_memdel((void **)alst);
+	int holder;
+
+	holder = *a;
+	*a = *b;
+	*b = holder;
 }
